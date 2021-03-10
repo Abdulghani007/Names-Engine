@@ -6,7 +6,7 @@ class SearchBox extends React.Component
     render(){
         return (
             <div className="searchBox">
-                <input class="search" type="text" onChange={this.props.onChange} placeholder="Enter Keywords..." />
+                <input className="search" type="text" onChange={this.props.onChange} placeholder="Enter Keywords..." />
             </div>
 
         );
