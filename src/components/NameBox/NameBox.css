@@ -1,0 +1,25 @@
+.nameBox
+{
+    display: inline-block;
+    padding: 10px 20px;
+    /* border: 2px solid white; */
+    border: none;
+    border-radius: 15px;
+    margin: 10px;
+    width: 100px;
+    color: white;
+    /* background-color: rgba(252, 252, 252, 0.2); */
+    background-color: #282d4f;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.nameBox:hover{
+    background-color: #4a5079;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.domainLink
+{
+    text-decoration: none;
+    color: white;
+}
