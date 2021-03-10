@@ -30,7 +30,7 @@ class App extends React.Component
 
                 <div className="container">
                     <img className={`title_image ${this.state.handleExpanded ? "title_image_expanded":"title_image_contracted"}`} src={header_image} alt="picture"/>
-                    <h1 className={`title ${this.state.handleFont ? "title_expanded":"title_contracted"}`}>Names Hunt!</h1>
+                    <h1 className={`title ${this.state.handleFont ? "title_expanded":"title_contracted"}`}>Names Engine!</h1>
                     <SearchBox  onChange={this.handleChange}/>
                     <NamesBox namesList={this.state.names}/>
                 </div>

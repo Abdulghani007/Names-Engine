@@ -41,14 +41,11 @@ body{
 .container
 {
     text-align: center;
-    /* border: 1px solid black; */
-    width: 700px;
+    width: 850px;
     height: 600px;
     position: absolute;
-    /* text-align: center; */
-    /* background-color: black; */
     top: 50%;
     left: 50%;
-    margin-left: -350px;
+    margin-left: -425px;
     margin-top: -300px;
 }
