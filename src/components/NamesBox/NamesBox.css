@@ -1,12 +1,18 @@
-.namesBox
+.box
 {
-    text-align: center;
-    display: inline-block;
-    width:850px;
-    max-height: 78%;
-    overflow-y: scroll;
+  text-align: center;
+  display: inline-block;
+  width:850px;
+  height: 75%;
 }
 
+.namesBox{
+  text-align: center;
+  display: inline-block;
+  width:850px;
+  max-height: 90%;
+  overflow-y: scroll;
+}
 *{
     scrollbar-width: thin;          /* "auto" or "thin" */
     scrollbar-color: rgb(77, 77, 247) rgba(0,0,0,0);   /* scroll thumb and track */
@@ -28,4 +34,40 @@
     border: none;
   }
 
+  .scrollEnd::-webkit-scrollbar-thumb
+  {
+    display: none;
+  }
 
+.scrollUp, .scrollDown
+{
+padding: 10px;
+margin: 10px;
+background-color: transparent;
+border-radius: 70%;
+border: 1px solid rgba(255, 255, 255, 0.2);
+box-shadow: 0 0 5px rgba(240, 240, 240, 0.2);
+color: white;
+}
+
+.scrollUp:focus, .scrollDown:focus{
+  outline: none;
+}
+
+.scrollUp:hover, .scrollDown:hover{
+  background-color: #4a5079;
+  cursor: pointer;
+}
+.scrollDown:active{
+  transform: translateY(4px);
+}
+
+.scrollUp:active
+{
+  transform: translateY(-4px);
+}
+
+.noScrollDown, .noScrollUp
+{
+  display: none;
+}

@@ -11,16 +11,45 @@ class App extends React.Component
     constructor(props)
     {
         super(props);
-        this.state = {value: '', names:[], handleExpanded: true, handleFont:true};
+        this.state = {value: '', names:[], handleExpanded: true, handleFont:true, scrollTimer: -1, scrollEnd: false, scrollingButton: false};
 
         this.handleChange = this.handleChange.bind(this);
-
     }
 
     handleChange(event)
     {
-        const List = event.target.value? name(event.target.value):[];
-        this.setState({value: event.target.value, handleExpanded: event.target.value.length > 0 ? false: true,handleFont: event.target.value.length > 0 ? false:true, names:List});
+        const inputText = event.target.value; 
+        const List = inputText? name(inputText):[];
+        this.setState({value: inputText, handleExpanded: inputText.length > 0 ? false: true,
+            handleFont: inputText.length > 0 ? false:true, names:List, scrollingButton: inputText.length > 0? true:false});
+        
+    }
+
+    // Called when rendering has completed
+    componentDidMount() {
+        const element = document.getElementById("namesBox");
+        element.addEventListener('scroll', this.handleScroll);
+    }
+
+    // Execute the React code when the component gets destroyed or unmounted from the DOM
+    componentWillUnmount() {
+        const element = document.getElementById("namesBox");
+        element.removeEventListener('scroll', this.handleScroll);
+    }
+
+    handleScroll = () => {
+
+        if (this.state.scrollTimer !== -1)
+        {
+            this.setState({scrollEnd:false}); // scrollEnd: false means it is scrolling
+            clearTimeout(this.state.scrollTimer);
+        }
+        
+        this.setState({scrollTimer: window.setTimeout(() => {
+            this.setState({scrollEnd: true}); // scrollEnd: true means scrolling has been stopped
+            console.log(this.state.scrollEnd);
+        },2000)})
+
     }
 
     render()
@@ -32,7 +61,7 @@ class App extends React.Component
                     <img className={`title_image ${this.state.handleExpanded ? "title_image_expanded":"title_image_contracted"}`} src={header_image} alt="picture"/>
                     <h1 className={`title ${this.state.handleFont ? "title_expanded":"title_contracted"}`}>Names Engine!</h1>
                     <SearchBox  onChange={this.handleChange}/>
-                    <NamesBox namesList={this.state.names}/>
+                    <NamesBox onScroll={this.handleScroll} scrollEndValue={this.state.scrollEnd} scrollingButton={this.state.scrollingButton} namesList={this.state.names}/>
                 </div>
                
             </div>
