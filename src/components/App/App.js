@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBox from './../SearchBox/SearchBox';
 import NamesBox from './../NamesBox/NamesBox';
+import MadeBy from './../MadeBy/MadeBy';
 import './App.css';
 import header_image from './header_image.jpg';
 const name = require('@rstacruz/startup-name-generator')
@@ -11,7 +12,7 @@ class App extends React.Component
     constructor(props)
     {
         super(props);
-        this.state = {value: '', names:[], handleExpanded: true, handleFont:true, scrollTimer: -1, scrollEnd: false, scrollingButton: false};
+        this.state = {value: '', names:[], handleExpanded: true, handleFont:true, scrollTimer: -1, scrollEnd: false, scrollingButton: false, showMadeBy:true};
 
         this.handleChange = this.handleChange.bind(this);
     }
@@ -21,7 +22,7 @@ class App extends React.Component
         const inputText = event.target.value; 
         const List = inputText? name(inputText):[];
         this.setState({value: inputText, handleExpanded: inputText.length > 0 ? false: true,
-            handleFont: inputText.length > 0 ? false:true, names:List, scrollingButton: inputText.length > 0? true:false});
+            handleFont: inputText.length > 0 ? false:true, names:List, scrollingButton: inputText.length > 0? true:false, showMadeBy: inputText.length > 0?false:true});
         
     }
 
@@ -62,6 +63,7 @@ class App extends React.Component
                     <h1 className={`title ${this.state.handleFont ? "title_expanded":"title_contracted"}`}>Names Engine!</h1>
                     <SearchBox  onChange={this.handleChange}/>
                     <NamesBox onScroll={this.handleScroll} scrollEndValue={this.state.scrollEnd} scrollingButton={this.state.scrollingButton} namesList={this.state.names}/>
+                    <MadeBy showMadeBy={this.state.showMadeBy}/>
                 </div>
                
             </div>

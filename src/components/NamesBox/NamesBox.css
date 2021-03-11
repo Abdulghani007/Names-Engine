@@ -1,17 +1,21 @@
+body{
+  font-family: 'Lato', sans-serif;
+}
 .box
 {
   text-align: center;
   display: inline-block;
   width:850px;
-  height: 75%;
 }
 
 .namesBox{
   text-align: center;
   display: inline-block;
-  width:850px;
-  max-height: 90%;
+  height: auto;
+  max-height: 410px;
   overflow-y: scroll;
+  scroll-behavior: smooth;
+
 }
 *{
     scrollbar-width: thin;          /* "auto" or "thin" */
@@ -41,13 +45,15 @@
 
 .scrollUp, .scrollDown
 {
-padding: 10px;
-margin: 10px;
-background-color: transparent;
-border-radius: 70%;
-border: 1px solid rgba(255, 255, 255, 0.2);
-box-shadow: 0 0 5px rgba(240, 240, 240, 0.2);
-color: white;
+  padding: 10px;
+  margin: 10px;
+  background-color: #282d4f;
+
+  border-radius: 70%;
+  /* border: 1px solid rgba(255, 255, 255, 0.2); */
+  border:none;
+  box-shadow: 0 0 5px rgba(240, 240, 240, 0.2);
+  color: white;
 }
 
 .scrollUp:focus, .scrollDown:focus{
@@ -57,6 +63,8 @@ color: white;
 .scrollUp:hover, .scrollDown:hover{
   background-color: #4a5079;
   cursor: pointer;
+  
+  box-shadow: 0 0 5px rgba(240, 240, 240, 0.5);
 }
 .scrollDown:active{
   transform: translateY(4px);

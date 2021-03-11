@@ -1,0 +1,30 @@
+.author
+{
+    color: white;
+    margin-bottom: 0;
+}
+.authorName
+{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: white;
+}
+.linkedin, .github
+{
+    color: #e9e8e9;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #282d4f;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    margin: 10px;
+}
+
+.linkedin:hover, .github:hover{
+    background-color: #4a5079;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+.notShowMadeBy
+{
+    display: none;
+}
